@@ -10,15 +10,21 @@ public class Parser {
 		List<String> result = new ArrayList<String>();
 		
 		for(String token : tokenizeQuery(query)) {
-			try {
-				Integer.parseInt(token);
-				continue;
-			} catch(NumberFormatException ex) {}
+			if (isNumber(token)) continue;
 			
 			token = normalizingToken(token);
 			result.add(token);
 		}
 		return result;
+	}
+	
+	private boolean isNumber(String token) {
+		try {
+			Integer.parseInt(token);
+			return true;
+		} catch(NumberFormatException ex) {
+			return false;
+		}
 	}
 	
 	private List<String> tokenizeQuery(String query) {
