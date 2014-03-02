@@ -19,24 +19,11 @@ public class Parser {
 		List<String> tokens = tokenizer.tokenize(query);
 		tokens = tokenDiscarder.discard(tokens);
 		
+		TokenNormalizer tokenNormalizer = new TokenNormalizer();
 		for(String token : tokens) {
-			token = normalizingToken(token);
+			token = tokenNormalizer.normalize(token);
 			result.add(token);
 		}
 		return result;
 	}
-	
-	private String normalizingToken(String token) {
-		token = singularizeToken(token);
-		return token;
-	}
-
-	private String singularizeToken(String token) {
-		if (token.endsWith("s")) {
-			token = token.substring(0, token.length() - 1);
-		}
-		return token;
-	}
-	
-	
 }
