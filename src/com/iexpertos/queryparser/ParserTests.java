@@ -14,7 +14,7 @@ public class ParserTests {
 	
 	@Before
 	public void setUp() {
-		parser = new Parser(new Tokenizer());
+		parser = new Parser(new Tokenizer(), new TokenDiscarder());
 	}
 
 	@Test

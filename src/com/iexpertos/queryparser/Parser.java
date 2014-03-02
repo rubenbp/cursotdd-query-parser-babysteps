@@ -6,14 +6,15 @@ import java.util.List;
 public class Parser {
 	
 	private Tokenizer tokenizer;
+	private TokenDiscarder tokenDiscarder;
 	
-	public Parser(Tokenizer tokenizer) {
+	public Parser(Tokenizer tokenizer, TokenDiscarder tokenDiscarder) {
 		this.tokenizer = tokenizer;
+		this.tokenDiscarder = tokenDiscarder;
 	}
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		TokenDiscarder tokenDiscarder = new TokenDiscarder();
 		
 		for(String token : tokenizer.tokenize(query)) {
 			if (tokenDiscarder.isDisposable(token)) continue;
