@@ -18,8 +18,6 @@ public class Parser {
 	}
 	
 	public List<String> parse(String query) {
-		List<String> result = new ArrayList<String>();
-
 		List<String> tokens = tokenizer.tokenize(query);
 		tokens = tokenDiscarder.discard(tokens);
 		return tokenNormalizer.normalize(tokens);
