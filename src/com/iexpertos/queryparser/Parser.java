@@ -15,10 +15,17 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
+
+		List<String> tokens = tokenizer.tokenize(query);
 		
-		for(String token : tokenizer.tokenize(query)) {
+		List<String> acceptedTokens = new ArrayList<String>();
+		for(String token : tokens) {
 			if (tokenDiscarder.isDisposable(token)) continue;
 			
+			acceptedTokens.add(token);
+		}
+		
+		for(String token : acceptedTokens) {
 			token = normalizingToken(token);
 			result.add(token);
 		}
