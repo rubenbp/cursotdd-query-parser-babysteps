@@ -16,4 +16,10 @@ public class ParserTests {
 		
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
+	
+	private List<String> parse(String query) {
+		List<String> result = new ArrayList<String>();
+		result.add("teacher");
+		return result;
+	}
 }
