@@ -37,4 +37,11 @@ public class ParserTests {
 		
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
+	
+	@Test
+	public void singulariza_las_palabras() {
+		List<String> tokens = parser.parse("teachers");
+		
+		assertThat(tokens.get(0), equalTo("teacher"));
+	}
 }
