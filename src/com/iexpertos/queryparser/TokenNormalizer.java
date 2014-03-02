@@ -1,6 +1,19 @@
 package com.iexpertos.queryparser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TokenNormalizer {
+	
+	public List<String> normalize(List<String> tokens) {
+		List<String> result = new ArrayList<String>();
+		
+		for(String token : tokens) {
+			result.add(normalize(token));
+		}
+		
+		return result;
+	}
 	
 	public String normalize(String token) {
 		token = singularizeToken(token);

@@ -22,11 +22,6 @@ public class Parser {
 
 		List<String> tokens = tokenizer.tokenize(query);
 		tokens = tokenDiscarder.discard(tokens);
-		
-		for(String token : tokens) {
-			token = tokenNormalizer.normalize(token);
-			result.add(token);
-		}
-		return result;
+		return tokenNormalizer.normalize(tokens);
 	}
 }
