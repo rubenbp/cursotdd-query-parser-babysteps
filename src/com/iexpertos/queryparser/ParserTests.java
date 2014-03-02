@@ -26,7 +26,7 @@ public class ParserTests {
 	
 	private List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		result.add("teacher");
+		result.add(query.toLowerCase());
 		return result;
 	}
 }
