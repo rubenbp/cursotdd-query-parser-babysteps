@@ -45,4 +45,11 @@ public class ParserTests {
 		assertThat(tokens, hasSize(1));
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
+	
+	@Test
+	public void ignora_la_preposicion_on() {
+		List<String> tokens = parser.parse("ruby on rails");
+		
+		assertThat(tokens, not(hasItem("on")));
+	}
 }
