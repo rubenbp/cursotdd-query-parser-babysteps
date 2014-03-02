@@ -17,7 +17,11 @@ public class TokenDiscarder {
 	}
 	
 	public boolean isDisposable(String token) {
-		return isNumber(token) || token.equals("on");
+		return isNumber(token) || isPreposition(token);
+	}
+
+	private boolean isPreposition(String token) {
+		return token.equals("on");
 	}
 	
 	private boolean isNumber(String token) {
