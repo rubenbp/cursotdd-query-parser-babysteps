@@ -7,7 +7,11 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		result.add(query.toLowerCase().trim());
+		String token = query.toLowerCase().trim();
+		if (token.endsWith("s")) {
+			token = token.substring(0, token.length() - 1);
+		}
+		result.add(token);
 		return result;
 	}
 }
