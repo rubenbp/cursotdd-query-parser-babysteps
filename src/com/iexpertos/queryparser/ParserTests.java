@@ -52,4 +52,11 @@ public class ParserTests {
 		
 		assertThat(tokens, not(hasItem("on")));
 	}
+	
+	@Test
+	public void no_se_obtienen_tokens_vacios() {
+		List<String> tokens = parser.parse("hello      world");
+		
+		assertThat(tokens, hasSize(2));
+	}
 }
