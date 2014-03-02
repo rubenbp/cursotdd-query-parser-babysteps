@@ -1,15 +1,14 @@
 package com.iexpertos.queryparser;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		
-		for(String token : tokenizeQuery(query)) {
+		Tokenizer tokeziner = new Tokenizer();
+		for(String token : tokeziner.tokenize(query)) {
 			if (isNumber(token)) continue;
 			
 			token = normalizingToken(token);
@@ -25,15 +24,6 @@ public class Parser {
 		} catch(NumberFormatException ex) {
 			return false;
 		}
-	}
-	
-	private List<String> tokenizeQuery(String query) {
-		query = prepareQueryToTokenize(query);
-		return Arrays.asList(query.split(" "));
-	}
-	
-	private String prepareQueryToTokenize(String query) {
-		return query.toLowerCase().trim();
 	}
 	
 	private String normalizingToken(String token) {
