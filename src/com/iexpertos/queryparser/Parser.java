@@ -7,10 +7,14 @@ public class Parser {
 	
 	private Tokenizer tokenizer;
 	private TokenDiscarder tokenDiscarder;
+	private TokenNormalizer tokenNormalizer;
 	
-	public Parser(Tokenizer tokenizer, TokenDiscarder tokenDiscarder) {
+	public Parser(Tokenizer tokenizer, 
+				  TokenDiscarder tokenDiscarder, 
+				  TokenNormalizer tokenNormalizer) {
 		this.tokenizer = tokenizer;
 		this.tokenDiscarder = tokenDiscarder;
+		this.tokenNormalizer = tokenNormalizer;
 	}
 	
 	public List<String> parse(String query) {
@@ -19,7 +23,6 @@ public class Parser {
 		List<String> tokens = tokenizer.tokenize(query);
 		tokens = tokenDiscarder.discard(tokens);
 		
-		TokenNormalizer tokenNormalizer = new TokenNormalizer();
 		for(String token : tokens) {
 			token = tokenNormalizer.normalize(token);
 			result.add(token);
