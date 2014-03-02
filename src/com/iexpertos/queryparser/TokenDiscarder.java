@@ -17,7 +17,7 @@ public class TokenDiscarder {
 	}
 	
 	public boolean isDisposable(String token) {
-		return isNumber(token) || isPreposition(token);
+		return isNumber(token) || isPreposition(token) || token.isEmpty();
 	}
 
 	private boolean isPreposition(String token) {
