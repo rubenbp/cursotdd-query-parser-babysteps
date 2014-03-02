@@ -1,6 +1,20 @@
 package com.iexpertos.queryparser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TokenDiscarder {
+	
+	public List<String> discard(List<String> allTokens) {
+		List<String> result = new ArrayList<String>();
+		
+		for(String token : allTokens) {
+			if (isDisposable(token)) continue;
+			
+			result.add(token);
+		}
+		return result;
+	}
 	
 	public boolean isDisposable(String token) {
 		return isNumber(token);

@@ -17,15 +17,9 @@ public class Parser {
 		List<String> result = new ArrayList<String>();
 
 		List<String> tokens = tokenizer.tokenize(query);
+		tokens = tokenDiscarder.discard(tokens);
 		
-		List<String> acceptedTokens = new ArrayList<String>();
 		for(String token : tokens) {
-			if (tokenDiscarder.isDisposable(token)) continue;
-			
-			acceptedTokens.add(token);
-		}
-		
-		for(String token : acceptedTokens) {
 			token = normalizingToken(token);
 			result.add(token);
 		}
