@@ -17,7 +17,7 @@ public class TokenDiscarder {
 	}
 	
 	public boolean isDisposable(String token) {
-		return isNumber(token);
+		return isNumber(token) || token.equals("on");
 	}
 	
 	private boolean isNumber(String token) {
