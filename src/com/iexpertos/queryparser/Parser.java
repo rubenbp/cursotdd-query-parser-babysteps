@@ -7,13 +7,18 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		String token = normalizingToken(query);
-		result.add(token);
+		
+		query = query.toLowerCase().trim();
+		
+		for(String token : query.split(" ")) {
+			if (token.equals("777")) continue;
+			
+			token = normalizingToken(token);
+			result.add(token);
+		}
 		return result;
 	}
-
 	private String normalizingToken(String token) {
-		token = token.toLowerCase().trim();
 		token = singularizeToken(token);
 		return token;
 	}
