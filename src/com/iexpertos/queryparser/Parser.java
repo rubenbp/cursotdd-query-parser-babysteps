@@ -5,10 +5,16 @@ import java.util.List;
 
 public class Parser {
 	
+	private Tokenizer tokenizer;
+	
+	public Parser(Tokenizer tokenizer) {
+		this.tokenizer = tokenizer;
+	}
+	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		Tokenizer tokeziner = new Tokenizer();
-		for(String token : tokeziner.tokenize(query)) {
+
+		for(String token : tokenizer.tokenize(query)) {
 			if (isNumber(token)) continue;
 			
 			token = normalizingToken(token);
