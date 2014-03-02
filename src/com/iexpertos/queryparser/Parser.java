@@ -7,10 +7,15 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		String token = query.toLowerCase().trim();
-		token = singularizeToken(token);
+		String token = normalizingToken(query);
 		result.add(token);
 		return result;
+	}
+
+	private String normalizingToken(String token) {
+		token = token.toLowerCase().trim();
+		token = singularizeToken(token);
+		return token;
 	}
 
 	private String singularizeToken(String token) {
