@@ -13,23 +13,15 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-
+		TokenDiscarder tokenDiscarder = new TokenDiscarder();
+		
 		for(String token : tokenizer.tokenize(query)) {
-			if (isNumber(token)) continue;
+			if (tokenDiscarder.isDisposable(token)) continue;
 			
 			token = normalizingToken(token);
 			result.add(token);
 		}
 		return result;
-	}
-	
-	private boolean isNumber(String token) {
-		try {
-			Integer.parseInt(token);
-			return true;
-		} catch(NumberFormatException ex) {
-			return false;
-		}
 	}
 	
 	private String normalizingToken(String token) {
