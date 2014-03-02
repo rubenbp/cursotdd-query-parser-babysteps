@@ -7,7 +7,7 @@ public class Parser {
 	
 	public List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
-		result.add(query.toLowerCase());
+		result.add(query.toLowerCase().trim());
 		return result;
 	}
 }
