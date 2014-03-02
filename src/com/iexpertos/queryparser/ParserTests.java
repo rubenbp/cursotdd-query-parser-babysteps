@@ -11,22 +11,18 @@ import org.junit.Test;
 public class ParserTests {
 
 	@Test
-	public void es_insensible_a_mayusculas_minusculas() {		
-		List<String> tokens = parse("TEACHER");
+	public void es_insensible_a_mayusculas_minusculas() {	
+		Parser parser = new Parser();
+		List<String> tokens = parser.parse("TEACHER");
 		
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
 	
 	@Test
-	public void es_insensible_a_mayusculas_minusculas_siempre() {		
-		List<String> tokens = parse("DOCTOR");
+	public void es_insensible_a_mayusculas_minusculas_siempre() {
+		Parser parser = new Parser();
+		List<String> tokens = parser.parse("DOCTOR");
 		
 		assertThat(tokens.get(0), equalTo("doctor"));
-	}
-	
-	private List<String> parse(String query) {
-		List<String> result = new ArrayList<String>();
-		result.add(query.toLowerCase());
-		return result;
 	}
 }
