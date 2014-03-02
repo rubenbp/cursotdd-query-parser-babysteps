@@ -52,4 +52,12 @@ public class ParserTests {
 		assertThat(tokens, hasSize(1));
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
+	
+	@Test
+	public void ignora_numeros_sueltos_en_cualquier_lugar() {
+		List<String> tokens = parser.parse("123 teacher 777");
+		
+		assertThat(tokens, hasSize(1));
+		assertThat(tokens.get(0), equalTo("teacher"));
+	}
 }
