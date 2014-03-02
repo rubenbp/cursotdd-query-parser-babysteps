@@ -17,6 +17,13 @@ public class ParserTests {
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
 	
+	@Test
+	public void es_insensible_a_mayusculas_minusculas_siempre() {		
+		List<String> tokens = parse("DOCTOR");
+		
+		assertThat(tokens.get(0), equalTo("doctor"));
+	}
+	
 	private List<String> parse(String query) {
 		List<String> result = new ArrayList<String>();
 		result.add("teacher");
