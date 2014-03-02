@@ -1,6 +1,5 @@
 package com.iexpertos.queryparser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Parser {
