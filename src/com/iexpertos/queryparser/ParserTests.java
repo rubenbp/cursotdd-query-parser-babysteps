@@ -25,13 +25,6 @@ public class ParserTests {
 	}
 	
 	@Test
-	public void es_insensible_a_mayusculas_minusculas_siempre() {
-		List<String> tokens = parser.parse("DOCTOR");
-		
-		assertThat(tokens.get(0), equalTo("doctor"));
-	}
-	
-	@Test
 	public void ignora_espacios_laterales() {
 		List<String> tokens = parser.parse("  teacher  ");
 		
@@ -42,14 +35,6 @@ public class ParserTests {
 	public void singulariza_las_palabras() {
 		List<String> tokens = parser.parse("teachers");
 		
-		assertThat(tokens.get(0), equalTo("teacher"));
-	}
-	
-	@Test
-	public void ignora_los_numeros_sueltos() {
-		List<String> tokens = parser.parse("teacher 777");
-		
-		assertThat(tokens, hasSize(1));
 		assertThat(tokens.get(0), equalTo("teacher"));
 	}
 	
