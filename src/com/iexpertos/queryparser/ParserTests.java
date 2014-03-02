@@ -30,4 +30,11 @@ public class ParserTests {
 		
 		assertThat(tokens.get(0), equalTo("doctor"));
 	}
+	
+	@Test
+	public void ignora_espacios_laterales() {
+		List<String> tokens = parser.parse("  teacher  ");
+		
+		assertThat(tokens.get(0), equalTo("teacher"));
+	}
 }
