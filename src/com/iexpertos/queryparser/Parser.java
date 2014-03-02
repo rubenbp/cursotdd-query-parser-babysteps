@@ -10,7 +10,10 @@ public class Parser {
 		List<String> result = new ArrayList<String>();
 		
 		for(String token : tokenizeQuery(query)) {
-			if (token.equals("777")) continue;
+			try {
+				Integer.parseInt(token);
+				continue;
+			} catch(NumberFormatException ex) {}
 			
 			token = normalizingToken(token);
 			result.add(token);
